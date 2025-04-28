@@ -1,14 +1,18 @@
 use anchor_lang::prelude::*;
+pub mod instructions;
+pub mod states;
 
-declare_id!("zhSMy6zXkvfyrajwhpq6bnEnioXuuXHiWjywkd2TYUp");
-
+use instructions::*;
+declare_id!("EAZ9GhM4TTfSrQAPB9VRdzurU6rTRMM73ZupUDA6geeC");
 #[program]
 pub mod p2p_trade_program {
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        msg!("Greetings from: {:?}", ctx.program_id);
-        Ok(())
+    pub fn create_trade(
+        ctx: Context<CreateTrade>,
+        params: CreateParams,
+    ) -> Result<()> {
+        instructions::create::create_trade(ctx, params)
     }
 }
 
