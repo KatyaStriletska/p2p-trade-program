@@ -33,10 +33,18 @@ pub const ESCROW_SIZE: usize = 8 + 32 + 32 + 32 + 8 + 8 + 1 + 1 + 8 + 8;
 pub enum EscrowError {
     #[msg("The trade amount is zero")]
     ZeroValue,
+    #[msg("The ")]
+    InvalidCreator,
+    #[msg("The trade is not in the correct stage")]
+    InvalidVault,
+    #[msg("The trade is not in the correct stage")]
+    InvalidMint,
+    #[msg("The trade is not in the correct stage")]
+    InvalidReceiveMint,
     // #[msg("The trade is already exchanged")]
     // AlreadyExchanged,
-    // #[msg("The trade is not in the correct stage")]
-    // InvalidStage,
+    #[msg("The trade is not in the correct stage")]
+    InvalidStage,
     // #[msg("The trade is already cancelled")]
     // AlreadyCancelled,
     // #[msg("The trade is not in the correct stage")]

@@ -3,16 +3,16 @@ pub mod instructions;
 pub mod states;
 
 use instructions::*;
-declare_id!("EAZ9GhM4TTfSrQAPB9VRdzurU6rTRMM73ZupUDA6geeC");
+declare_id!("CixfUytaZUwNF29aXs1CnyjSXB9UTTaU4Hvf5qye9x4G");
 #[program]
 pub mod p2p_trade_program {
     use super::*;
 
-    pub fn create_trade(
-        ctx: Context<CreateTrade>,
-        params: CreateParams,
-    ) -> Result<()> {
+    pub fn create_trade(ctx: Context<CreateTrade>, params: CreateParams) -> Result<()> {
         instructions::create::create_trade(ctx, params)
+    }
+    pub fn exchange(ctx: Context<Exchange>, trade_id: u64) -> Result<()> {
+        instructions::exchange::exchange(ctx, trade_id)
     }
 }
 

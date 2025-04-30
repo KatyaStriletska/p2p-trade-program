@@ -31,7 +31,7 @@ pub struct CreateTrade<'info> {
     #[account(
         mut,
         constraint = creator_ata_for_sale.owner == creator.key(),
-        constraint = creator_ata_for_sale.minsot == token_for_sale.key()
+        constraint = creator_ata_for_sale.mint == token_for_sale.key()
     )]
     pub creator_ata_for_sale: Account<'info, TokenAccount>,
 

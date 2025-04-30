@@ -6,7 +6,7 @@ resolution = true
 skip-lint = false
 
 [programs.devnet]
-p2p_trade_program = "EAZ9GhM4TTfSrQAPB9VRdzurU6rTRMM73ZupUDA6geeC"
+p2p_trade_program = "CixfUytaZUwNF29aXs1CnyjSXB9UTTaU4Hvf5qye9x4G"
 
 [registry]
 url = "https://api.apr.dev"
