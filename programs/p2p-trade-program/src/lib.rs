@@ -3,7 +3,7 @@ pub mod instructions;
 pub mod states;
 
 use instructions::*;
-declare_id!("CixfUytaZUwNF29aXs1CnyjSXB9UTTaU4Hvf5qye9x4G");
+declare_id!("F6UDhDHeqvTrQRtaQPkTnwXf3NVCSYZniiMQbAMA1Q1T");
 #[program]
 pub mod p2p_trade_program {
     use super::*;
@@ -13,6 +13,9 @@ pub mod p2p_trade_program {
     }
     pub fn exchange(ctx: Context<Exchange>, trade_id: u64) -> Result<()> {
         instructions::exchange::exchange(ctx, trade_id)
+    }
+    pub fn cancel(ctx: Context<Cancel>, trade_id: u64) -> Result<()> {
+        instructions::cancel::cancel(ctx, trade_id)
     }
 }
 

@@ -20,7 +20,8 @@ pub struct Exchange<'info>{
     /// CHECK: This is the original creator of the escrow. We check ownership against the escrow account using has_one constraint. Used only as ATA authority.
     pub owner: SystemAccount<'info>,
 
-    #[account( mut,
+    #[account(
+        mut,
         associated_token::mint = trade_token_mint,
         associated_token::authority = escrow_state)]
     pub escrow_vault: Account<'info, TokenAccount>, 
@@ -32,6 +33,7 @@ pub struct Exchange<'info>{
         seeds=[b"trade", owner.key().as_ref(), trade_id.to_le_bytes().as_ref()],
         bump = escrow_state.state_bump,
         constraint = escrow_state.stage == EscrowStage::ReadyExchange @ EscrowError::InvalidStage,
+        close=owner,
     )]
     pub escrow_state: Account<'info, Escrow>,
 
